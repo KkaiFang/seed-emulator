@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # encoding: utf-8
 import sys, os
-sys.path.append("../../../")
+# sys.path.append("../../../")
 from seedemu import *
 import sys, os
 
