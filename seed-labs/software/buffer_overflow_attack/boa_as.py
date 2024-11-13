@@ -92,7 +92,6 @@ def run(dumpfile = None):
     host0.importFile(hostpath="/home/seed/Desktop/seed-labs/category-software/Buffer_Overflow_Server/Labsetup/server-code/server",containerpath="/bof/server")
     host0.importFile(hostpath="/home/seed/Desktop/seed-labs/category-software/Buffer_Overflow_Server/Labsetup/server-code/stack-L1",containerpath="/bof/stack")
     host0.insertStartCommand(0,"cd bof/")
-    
     host0.insertStartCommand(1,"chmod +x server")
     host0.insertStartCommand(2,"chmod +x stack")
     host0.insertStartCommand(3,"./server |tee bof_log &")
