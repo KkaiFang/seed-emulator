@@ -72,7 +72,13 @@ def send_eth_transaction(from_account, to_address, amount_eth):
         print(f"Transaction sent! Hash: {tx_hash.hex()}")
 
         # Wait for receipt
-        receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+        # receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+        receipt = w3.eth.wait_for_transaction_receipt(
+            tx_hash,
+            timeout=600,        # 600 second
+            poll_latency=1      # 1 second loop
+        )
+
         status = "Success" if receipt.status == 1 else "Fail"
         print(f"Transaction status: {status}\n")
 
