@@ -11,17 +11,30 @@ from datetime import datetime
 # --------------------------
 # Parse command-line arguments
 # --------------------------
+# --------------------------
+# Parse command-line arguments
+# --------------------------
 parser = argparse.ArgumentParser(description="ETH transaction sender")
+
 parser.add_argument(
-    "--node",
+    "--ip",
     type=str,
-    default="http://10.164.0.118:8545",
-    help="Ethereum node RPC URL"
+    default="10.164.0.118",
+    help="Ethereum node IP address"
 )
+
+parser.add_argument(
+    "--port",
+    type=int,
+    default=8545,
+    help="Ethereum node RPC port"
+)
+
 args = parser.parse_args()
 
-# Use passed-in node URL
-NODE_URL = args.node
+# Build RPC URL
+NODE_URL = f"http://{args.ip}:{args.port}"
+
 
 # Connect to blockchain
 w3 = Web3(Web3.HTTPProvider(NODE_URL))
